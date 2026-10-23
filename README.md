@@ -85,7 +85,7 @@ python manage.py runserver
 
 ## 🌳 Cтруктура проекта
  ```
-25_Django_DZ/
+26_Django_DZ/
 ├── blog/                       # Новое Django-приложение для ведения блога новостей
 │   ├── migrations/             # История миграций структуры таблиц блога
 │   │   ├── 0001_initial.py     # Создание таблицы BlogEntry со всеми полями
