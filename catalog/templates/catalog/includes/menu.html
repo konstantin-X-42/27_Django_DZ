@@ -30,7 +30,7 @@
             </li>
         {% endif %}
 
-        <!-- Контакты (Опустили в самый низ списка) -->
+        <!-- Контакты -->
         <li>
             <a href="{% url 'catalog:21-2_home4' %}" class="{% if request.resolver_match.url_name == '21-2_home4' %}active-custom{% else %}nav-link-custom{% endif %}">Контакты</a>
         </li>
@@ -47,7 +47,7 @@
                 <li><a class="custom-dropup-item" href="{% url 'users:profile' %}">Профиль</a></li>
                 <li><div class="custom-dropup-divider"></div></li>
                 <li>
-                    <!-- -27- По правилам Django выход из системы (logout) должен осуществляться через POST-запрос -->
+                    <!-- -27- Выход из системы (logout) осуществляется через POST-запрос -->
                     <form action="{% url 'users:logout' %}" method="post" style="margin: 0; padding: 0;">
                         {% csrf_token %}
                         <button type="submit" class="custom-dropup-item" style="color: #ea868f; background: none; border: none; width: 100%; text-align: left; padding: 5px 15px;">Выход</button>
