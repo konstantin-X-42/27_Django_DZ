@@ -87,10 +87,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# -27- Меняем основной язык проекта на русский (вывод системных предложений)
+LANGUAGE_CODE = 'ru'
+# LANGUAGE_CODE = 'en-us'
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+# -27- Выставляем московское время (или оставить UTC)
+TIME_ZONE = 'Europe/Moscow'
+# TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -123,11 +126,11 @@ ADMIN_EMAIL = os.getenv('ADMIN_EMAIL')  # Безопасный импорт из
 # -27- Указываем Django использовать нашу кастомную модель User из приложения users вместо стандартной
 AUTH_USER_MODEL = 'users.User'
 
-# -27- Куда перенаправлять пользователя после успешного входа в аккаунт
-LOGIN_REDIRECT_URL = 'catalog:home'
+# -27- Указываем имя маршрута, по которому Django найдёт твой шаблон home.html
+LOGIN_REDIRECT_URL = 'catalog:21-2_home1'
 
-# -27- Куда перенаправлять пользователя после выхода из системы
-LOGOUT_REDIRECT_URL = 'catalog:home'
+# -27- То же самое для перенаправления после выхода из системы
+LOGOUT_REDIRECT_URL = 'catalog:21-2_home1'
 
 
 
