@@ -15,9 +15,9 @@ class Command(BaseCommand):
         # 2. Загружаем данные из файла фикстур
         self.stdout.write(self.style.MIGRATE_LABEL('Загрузка новых данных из фикстур'))
         try:
-            # Вызываем loaddata для файла catalog.json
-            call_command('loaddata', 'catalog.json')
+            # Вызываем loaddata для файла 23_catalog.json
+            call_command('loaddata', '23_catalog.json')
 
-            self.stdout.write(self.style.SUCCESS('База данных успешно очищена и наполнена из catalog.json'))
+            self.stdout.write(self.style.SUCCESS('База данных успешно очищена и наполнена из 23_catalog.json'))
         except Exception as e:
             self.stdout.write(self.style.ERROR(f'Ошибка при загрузке фикстур: {e}'))
