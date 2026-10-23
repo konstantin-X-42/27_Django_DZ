@@ -1,0 +1,55 @@
+{% extends 'catalog/base.html' %}
+
+{% block title %}
+{% if object %}Редактировать товар
+{% else %}Добавить товар
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div style="max-width: 600px; margin: 0 auto; background-color: #fff; padding: 40px; border: 1px solid #dee2e6; border-radius: 8px; box-shadow: 0 .125rem .25rem rgba(0,0,0,.05);">
+    <!-- Динамический заголовок страницы -->
+    <h2 class="mb-4" style="font-weight: 400; margin-top: 0;">
+        {% if object %}Редактировать товар
+        {% else %}Добавить товар
+        {% endif %}
+    </h2>
+
+    <!-- Динамический подзаголовок -->
+    <p class="text-muted mb-4" style="font-size: 0.95rem;">
+        {% if object %}
+            Внесите изменения в поля ниже, чтобы обновить продукт в каталоге.
+        {% else %}
+            Заполните поля ниже, чтобы опубликовать новый продукт в каталоге.
+        {% endif %}
+    </p>
+
+    <!-- Форма отправляет данные методом POST и поддерживает загрузку картинок (enctype) -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <!-- Выводим сгенерированные Django поля формы -->
+        {{ form.as_p }}
+
+        <div style="margin-top: 30px; display: flex; gap: 15px;">
+            <!-- Динамический текст на кнопке сохранения -->
+            <button type="submit" class="btn-outline-primary" style="background-color: #2f6bf2; color: white; flex: 1;">
+                {% if object %}Сохранить изменения
+                {% else %}Сохранить товар
+                {% endif %}
+            </button>
+
+            <!-- Динамическая кнопка отмены: при редактировании возвращает в панель управления, при создании — на главную -->
+            {% if object %}
+                <a href="{% url 'catalog:manage_products' %}" class="btn-outline-primary" style="text-align: center; border-color: #6c757d; color: #6c757d; flex: 1;">
+                    Отмена
+                </a>
+            {% else %}
+                <a href="{% url 'catalog:21-2_home1' %}" class="btn-outline-primary" style="text-align: center; border-color: #6c757d; color: #6c757d; flex: 1;">
+                    Отмена
+                </a>
+            {% endif %}
+        </div>
+    </form>
+</div>
+{% endblock %}
