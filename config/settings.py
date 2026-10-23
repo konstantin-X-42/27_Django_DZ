@@ -123,6 +123,12 @@ ADMIN_EMAIL = os.getenv('ADMIN_EMAIL')  # Безопасный импорт из
 # -27- Указываем Django использовать нашу кастомную модель User из приложения users вместо стандартной
 AUTH_USER_MODEL = 'users.User'
 
+# -27- Куда перенаправлять пользователя после успешного входа в аккаунт
+LOGIN_REDIRECT_URL = 'catalog:home'
+
+# -27- Куда перенаправлять пользователя после выхода из системы
+LOGOUT_REDIRECT_URL = 'catalog:home'
+
 
 
 
