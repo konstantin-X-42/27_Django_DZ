@@ -5,7 +5,7 @@ from users.models import User
 
 
 class UserRegisterForm(UserCreationForm):
-    # -27- Добавляем отдельное поле для подтверждения пароля, как требует ТЗ
+    # -27- Добавляем отдельное поле для подтверждения пароля
     password_confirm = forms.CharField(
         label='Подтверждение пароля',
         widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Повторите пароль'})
@@ -43,3 +43,19 @@ class UserRegisterForm(UserCreationForm):
             raise ValidationError("Пароли не совпадают!")
 
         return cleaned_data
+
+
+# -27- Форма для редактирования профиля пользователя
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = User
+        # -27- Поля, доступные пользователю для изменения в профиле
+        fields = ('email', 'phone', 'country', 'avatar')
+
+        # -27- Стилизуем поля формы с помощью Bootstrap классов
+        widgets = {
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control'}),
+            'country': forms.TextInput(attrs={'class': 'form-control'}),
+            'avatar': forms.FileInput(attrs={'class': 'form-control'}),
+        }

@@ -1,8 +1,9 @@
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView
 from django.core.mail import send_mail
 from django.conf import settings
-from users.forms import UserRegisterForm
+from users.forms import UserRegisterForm, UserProfileForm
+from users.models import User
 
 
 class RegisterView(CreateView):
@@ -32,3 +33,15 @@ class RegisterView(CreateView):
             print(f"Ошибка при отправке приветственного email: {e}")
 
         return super().form_valid(form)
+
+
+# -27- Контроллер редактирования профиля на базе UpdateView
+class ProfileView(UpdateView):
+    model = User
+    form_class = UserProfileForm
+    template_name = 'users/profile.html'
+    success_url = reverse_lazy('users:profile')  # -27- Перенаправление обратно на страницу профиля после сохранения
+
+    def get_object(self, queryset=None):
+        # -27- Переопределяем метод, чтобы редактировался профиль текущего вошедшего пользователя
+        return self.request.user
