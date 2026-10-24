@@ -48,16 +48,11 @@
         }
     },
     {
-        "model": "catalog.product",
-        "pk": 1,
+        "model": "catalog.category",
+        "pk": 7,
         "fields": {
-            "name": "Штаны",
-            "description": "На мальчика",
-            "image": "products/1Dgango.jpg",
-            "category": 1,
-            "price": "500.00",
-            "created_at": "2026-10-16T11:23:42.556Z",
-            "updated_at": "2026-10-16T11:23:42.556Z"
+            "name": "Сапоги",
+            "description": ""
         }
     },
     {
@@ -97,6 +92,32 @@
             "price": "59990.00",
             "created_at": "2026-10-16T11:58:31.630Z",
             "updated_at": "2026-10-23T15:49:24.397Z"
+        }
+    },
+    {
+        "model": "catalog.product",
+        "pk": 1,
+        "fields": {
+            "name": "Брюки",
+            "description": "На мальчика",
+            "image": "products/1Dgango.jpg",
+            "category": 1,
+            "price": "500.00",
+            "created_at": "2026-10-16T11:23:42.556Z",
+            "updated_at": "2026-10-24T06:41:42.545Z"
+        }
+    },
+    {
+        "model": "catalog.product",
+        "pk": 6,
+        "fields": {
+            "name": "Свпоги",
+            "description": "женские",
+            "image": "products/3Dgango_sNYOOQC.jpg",
+            "category": 7,
+            "price": "7500.00",
+            "created_at": "2026-10-24T14:47:04.860Z",
+            "updated_at": "2026-10-24T14:47:31.556Z"
         }
     }
 ]
